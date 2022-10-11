@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour
         ShootForward();
         ShootLeft();
         ShootRight();
+        ShootAll();
     }
 
     private void Move()
@@ -46,6 +47,14 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetButton("ShootRight"))
         {
             shooting.ShootRight();
+        }
+    }
+
+    private void ShootAll()
+    {
+        if (Input.GetButton("ShootAll"))
+        {
+            shooting.ShootAll();
         }
     }
 }

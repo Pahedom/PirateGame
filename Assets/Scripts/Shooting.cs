@@ -67,4 +67,16 @@ public class Shooting : MonoBehaviour
 
         _rightTimer = 0;
     }
+
+    public void ShootAll()
+    {
+        if (_frontTimer < reloadTime || _leftTimer < reloadTime || _rightTimer < reloadTime)
+        {
+            return;
+        }
+
+        ShootForward();
+        ShootLeft();
+        ShootRight();
+    }
 }
