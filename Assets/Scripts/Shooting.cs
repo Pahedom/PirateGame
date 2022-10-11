@@ -14,11 +14,6 @@ public class Shooting : MonoBehaviour
 
     public float reloadTime;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         _frontTimer += Time.deltaTime;
