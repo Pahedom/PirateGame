@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
 
     public void MoveForward(float axis)
     {
-        _rigidbody.velocity = transform.up * axis * moveSpeed * Time.deltaTime;
+        _rigidbody.velocity = transform.up * axis * moveSpeed;
     }
 
     public void Rotate(float axis)
