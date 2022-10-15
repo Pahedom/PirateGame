@@ -10,7 +10,7 @@ public class Shooting : MonoBehaviour
     public Transform[] leftCannons;
     public Transform[] rightCannons;
 
-    public GameObject cannonBall;
+    public Pool cannonBallPool;
 
     public float reloadTime;
 
@@ -28,7 +28,7 @@ public class Shooting : MonoBehaviour
             return;
         }
 
-        Instantiate(cannonBall, frontCannon.position, frontCannon.rotation);
+        cannonBallPool.Spawn(frontCannon.position, frontCannon.rotation);
 
         _frontTimer = 0;
     }
@@ -42,7 +42,7 @@ public class Shooting : MonoBehaviour
 
         foreach (var item in leftCannons)
         {
-            Instantiate(cannonBall, item.position, item.rotation);
+            cannonBallPool.Spawn(item.position, item.rotation);
         }
 
         _leftTimer = 0;
@@ -57,7 +57,7 @@ public class Shooting : MonoBehaviour
 
         foreach (var item in rightCannons)
         {
-            Instantiate(cannonBall, item.position, item.rotation);
+            cannonBallPool.Spawn(item.position, item.rotation);
         }
 
         _rightTimer = 0;
