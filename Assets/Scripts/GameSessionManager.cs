@@ -15,6 +15,8 @@ public class GameSessionManager : MonoBehaviour
     private void Start()
     {
         _timer = sessionTime;
+
+        UnpauseGame();
     }
 
     private void Update()
@@ -42,10 +44,14 @@ public class GameSessionManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+
+        pauseMenu.SetActive(true);
     }
 
     public void UnpauseGame()
     {
         Time.timeScale = 1;
+
+        pauseMenu.SetActive(false);
     }
 }

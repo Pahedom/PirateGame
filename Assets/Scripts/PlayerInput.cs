@@ -4,16 +4,19 @@ public class PlayerInput : MonoBehaviour
 {
     public Movement movement;
     public Shooting shooting;
+    public GameSessionManager game;
 
     void Update()
     {
         Move();
         Rotate();
 
-        ShootForward();
-        ShootLeft();
-        ShootRight();
+        //ShootForward();
+        //ShootLeft();
+        //ShootRight();
         ShootAll();
+
+        Pause();
     }
 
     private void Move()
@@ -55,6 +58,21 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetButton("ShootAll"))
         {
             shooting.ShootAll();
+        }
+    }
+
+    private void Pause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1)
+            {
+                game.PauseGame();
+            }
+            else
+            {
+                game.UnpauseGame();
+            }
         }
     }
 }
