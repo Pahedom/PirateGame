@@ -1,9 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSessionManager : MonoBehaviour
 {
     private float _timer;
+
+    private Health _player;
 
     public float sessionTime;
 
@@ -14,6 +17,9 @@ public class GameSessionManager : MonoBehaviour
 
     private void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+        _player.OnDie += EndSession;
+
         _timer = sessionTime;
 
         UnpauseGame();
@@ -39,6 +45,13 @@ public class GameSessionManager : MonoBehaviour
     public void EndSession()
     {
         PauseGame();
+
+        gameOverMenu.SetActive(true);
+    }
+
+    public void RestartSession()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void PauseGame()

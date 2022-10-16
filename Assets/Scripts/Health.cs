@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class Health : MonoBehaviour
     public Slider display;
 
     private float _health;
+
+    public Action OnDie;
 
     private void Start()
     {
@@ -23,6 +26,8 @@ public class Health : MonoBehaviour
 
         if (_health <= 0f)
         {
+            OnDie?.Invoke();
+
             Destroy(gameObject);
         }
 
